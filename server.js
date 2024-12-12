@@ -24,7 +24,7 @@ app.post('/', async (req, res) => {
         await pool.query(`
             INSERT INTO schools (name, location) VALUES ($1, $2)
         `, [name, location])
-        res.sendStatus(201).send({ message: 'Child created successfully!' })
+        res.status(201).send({ message: 'Child created successfully!' })
     } catch (err) {
         console.log(err)
         res.sendStatus(500)
@@ -40,7 +40,7 @@ app.get('/setup', async (req, res) => {
                 location VARCHAR(100)
             )
         `)
-        res.sendStatus(200).send({ message: 'Table created successfully!' })
+        res.status(200).send({ message: 'Table created successfully!' })
     } catch (err) {
         console.log(err)
         res.sendStatus(500)
